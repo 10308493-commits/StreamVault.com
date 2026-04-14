@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-bg"></div>
+
+  <div class="auth-wrap">
+    <a href="index.html" class="auth-logo">StreamVault</a>
+
+    <div class="auth-card" id="authCard">
+
+      <!-- Login Form -->
+      <div class="auth-form-section" id="loginSection">
+        <h2 class="auth-title">Sign In</h2>
+        <p class="auth-subtitle">Welcome back. Pick up where you left off.</p>
+        <form id="loginForm" class="auth-form" novalidate>
+          <div class="auth-field">
+            <input type="email" id="loginEmail" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Email address</label>
+            <span class="auth-err" id="loginEmailErr"></span>
+          </div>
+          <div class="auth-field">
+            <input type="password" id="loginPassword" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Password</label>
+            <span class="auth-err" id="loginPassErr"></span>
+          </div>
+          <div class="auth-options">
+            <label class="auth-check"><input type="checkbox" id="rememberMe" /> Remember me</label>
+            <a href="#" class="auth-link">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary auth-btn">Sign In</button>
+          <p class="auth-err auth-global" id="loginGlobalErr"></p>
+        </form>
+        <p class="auth-switch">New to StreamVault? <a href="#" class="auth-link" id="goSignup">Create an account</a></p>
+      </div>
+
+      <!-- Sign Up Form -->
+      <div class="auth-form-section hidden" id="signupSection">
+        <h2 class="auth-title">Create Account</h2>
+        <p class="auth-subtitle">Join millions of viewers worldwide.</p>
+        <form id="signupForm" class="auth-form" novalidate>
+          <div class="auth-field">
+            <input type="text" id="signupName" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Full name</label>
+            <span class="auth-err" id="signupNameErr"></span>
+          </div>
+          <div class="auth-field">
+            <input type="email" id="signupEmail" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Email address</label>
+            <span class="auth-err" id="signupEmailErr"></span>
+          </div>
+          <div class="auth-field">
+            <input type="password" id="signupPassword" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Password</label>
+            <span class="auth-err" id="signupPassErr"></span>
+          </div>
+          <div class="auth-field">
+            <input type="password" id="signupConfirm" class="auth-input" placeholder=" " required />
+            <label class="auth-label">Confirm password</label>
+            <span class="auth-err" id="signupConfirmErr"></span>
+          </div>
+          <button type="submit" class="btn btn-primary auth-btn">Create Account</button>
+          <p class="auth-err auth-global" id="signupGlobalErr"></p>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="#" class="auth-link" id="goLogin">Sign in</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="auth.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Movies.html" class="active">Movies</a></li>
+      <li><a href="Tv Shows.html">TV Shows</a></li>
+      <li><a href="new-popular.html">New &amp; Popular</a></li>
+      <li><a href="My List.html">My List</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..."
+          autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="movies-hero-slider" id="moviesSlider">
+    <div class="slider-track" id="sliderTrack"></div>
+
+    <div class="slider-overlay"></div>
+
+    <div class="slider-content" id="sliderContent"></div>
+
+    <button class="slider-arrow left" id="sliderPrev">&#8592;</button>
+    <button class="slider-arrow right" id="sliderNext">&#8594;</button>
+
+    <div class="slider-dots" id="sliderDots"></div>
+  </header>
+
+  <!-- Video Player Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose" aria-label="Close">&times;</button>
+      <div class="player-video-wrap" id="playerVideoWrap">
+        <video class="player-video" id="playerVideo" controls style="display:none"></video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen
+          allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+        <span class="player-resume" id="playerResume"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <h2 class="section-title" style="padding:0 4% 1.5rem">Browse by Category</h2>
+    <div class="categories-track-wrap">
+      <div class="categories-track" id="categoriesTrack">
+        <div class="cat-card" style="--cat-color:#e50914">🔥<span>Action</span></div>
+        <div class="cat-card" style="--cat-color:#0070f3">🚀<span>Sci-Fi</span></div>
+        <div class="cat-card" style="--cat-color:#7c3aed">🌆<span>Neo-Noir</span></div>
+        <div class="cat-card" style="--cat-color:#059669">🌿<span>Drama</span></div>
+        <div class="cat-card" style="--cat-color:#d97706">🕵️<span>Thriller</span></div>
+        <div class="cat-card" style="--cat-color:#db2777">👻<span>Horror</span></div>
+        <div class="cat-card" style="--cat-color:#0891b2">🌊<span>Adventure</span></div>
+        <div class="cat-card" style="--cat-color:#65a30d">😂<span>Comedy</span></div>
+        <div class="cat-card" style="--cat-color:#9333ea">⚔️<span>Fantasy</span></div>
+        <div class="cat-card" style="--cat-color:#c2410c">⚓<span>War</span></div>
+        <div class="cat-card" style="--cat-color:#0f766e">🔮<span>Mystery</span></div>
+        <div class="cat-card" style="--cat-color:#b45309">🤠<span>Western</span></div>
+        <!-- duplicate for seamless loop -->
+        <div class="cat-card" style="--cat-color:#e50914">🔥<span>Action</span></div>
+        <div class="cat-card" style="--cat-color:#0070f3">🚀<span>Sci-Fi</span></div>
+        <div class="cat-card" style="--cat-color:#7c3aed">🌆<span>Neo-Noir</span></div>
+        <div class="cat-card" style="--cat-color:#059669">🌿<span>Drama</span></div>
+        <div class="cat-card" style="--cat-color:#d97706">🕵️<span>Thriller</span></div>
+        <div class="cat-card" style="--cat-color:#db2777">👻<span>Horror</span></div>
+        <div class="cat-card" style="--cat-color:#0891b2">🌊<span>Adventure</span></div>
+        <div class="cat-card" style="--cat-color:#65a30d">😂<span>Comedy</span></div>
+        <div class="cat-card" style="--cat-color:#9333ea">⚔️<span>Fantasy</span></div>
+        <div class="cat-card" style="--cat-color:#c2410c">⚓<span>War</span></div>
+        <div class="cat-card" style="--cat-color:#0f766e">🔮<span>Mystery</span></div>
+        <div class="cat-card" style="--cat-color:#b45309">🤠<span>Western</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Adventure Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🌊 Adventure Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="adventureGrid"></div>
+  </section>
+
+  <!-- Comedy Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">😂 Comedy Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="comedyGrid"></div>
+  </section>
+
+  <!-- Action Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🔥 Action Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="actionGrid"></div>
+  </section>
+
+  <!-- Sci-Fi Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🚀 Sci-Fi Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="scifiGrid"></div>
+  </section>
+
+  <!-- Fantasy Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">⚔️ Fantasy Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="fantasyGrid"></div>
+  </section>
+
+  <!-- Western Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🤠 Western Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="westernGrid"></div>
+  </section>
+
+  <!-- Trailers Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🎬 Latest Trailers</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="trailersGrid"></div>
+  </section>
+
+  <!-- Drama Movies Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🎭 Drama Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="dramaGrid"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand-center">
+        <div class="footer-logo">StreamVault</div>
+        <p class="footer-tagline">Your universe of stories, on demand.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+          <a href="#" aria-label="Instagram" class="social-icon">&#128247;</a>
+          <a href="#" aria-label="YouTube" class="social-icon">&#9654;</a>
+          <a href="#" aria-label="TikTok" class="social-icon">&#9835;</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-row">
+        <a href="index.html">Home</a>
+        <a href="Movies.html">Movies</a>
+        <a href="Tv Shows.html">TV Shows</a>
+        <a href="new-popular.html">New &amp; Popular</a>
+        <a href="My List.html">My List</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Get new release alerts straight to your inbox</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom-center">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 StreamVault, Inc. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="movies-page.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="admin.js"></script>
+</body>
+
+</html>

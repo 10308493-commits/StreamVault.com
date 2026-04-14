@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="Movies.html">Movies</a></li>
+      <li><a href="Tv Shows.html">TV Shows</a></li>
+      <li><a href="new-popular.html">New &amp; Popular</a></li>
+      <li><a href="My List.html">My List</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..." autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <span class="hero-badge">&#9654; Now Trending #1</span>
+      <h1 class="hero-title">Dark Horizon</h1>
+      <p class="hero-meta">2024 &nbsp;|&nbsp; 18+ &nbsp;|&nbsp; 2h 14m &nbsp;|&nbsp; Action &bull; Sci-Fi &bull; Thriller</p>
+      <p class="hero-desc">
+        When a rogue AI takes control of Earth's defense grid, a disgraced astronaut must team up with an underground resistance to stop the countdown before humanity's last hour runs out.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary">&#9654; Play Now</button>
+        <button class="btn btn-secondary">&#43; My List</button>
+        <button class="btn btn-ghost">More Info</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-value">98%</span><span class="stat-label">Match</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-value">4.9</span><span class="stat-label">Rating</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-value">2.4M</span><span class="stat-label">Watching</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">&#8595; Scroll to explore</div>
+  </section>
+
+  <!-- Video Player Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose" aria-label="Close">&times;</button>
+      <div class="player-video-wrap" id="playerVideoWrap">
+        <video class="player-video" id="playerVideo" controls style="display:block">
+          Your browser does not support the video tag.
+        </video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen
+          allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+        <span class="player-resume" id="playerResume"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue Watching Section -->
+  <section class="featured continue-watching">
+    <div class="featured-header">
+      <h2 class="section-title">Continue Watching</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="cw-row" id="cwRow"></div>
+  </section>
+
+  <!-- Featured Movies Section -->
+  <section class="featured">
+    <div class="featured-header">
+      <h2 class="section-title">Featured Movies</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="moviesGrid"></div>
+  </section>
+
+  <!-- Reviews Section -->
+  <section class="featured reviews-section">
+    <div class="featured-header">
+      <h2 class="section-title">What Viewers Are Saying</h2>
+    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
+
+    <!-- Write a Review -->
+    <div class="review-form-wrap">
+      <h3 class="review-form-title">Leave a Review</h3>
+      <form class="review-form" id="reviewForm">
+        <div class="review-form-row">
+          <select class="review-input" id="reviewMovie">
+            <option value="" disabled selected>Select a movie you watched</option>
+          </select>
+          <div class="star-picker" id="starPicker">
+            <span data-val="1">&#9733;</span>
+            <span data-val="2">&#9733;</span>
+            <span data-val="3">&#9733;</span>
+            <span data-val="4">&#9733;</span>
+            <span data-val="5">&#9733;</span>
+          </div>
+        </div>
+        <input type="text" class="review-input" id="reviewName" placeholder="Your name" maxlength="40" required />
+        <textarea class="review-input review-textarea" id="reviewText" placeholder="Share your thoughts..." maxlength="300" required></textarea>
+        <button type="submit" class="btn btn-primary review-submit">Post Review</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand-center">
+        <div class="footer-logo">StreamVault</div>
+        <p class="footer-tagline">Your universe of stories, on demand.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+          <a href="#" aria-label="Instagram" class="social-icon">&#128247;</a>
+          <a href="#" aria-label="YouTube" class="social-icon">&#9654;</a>
+          <a href="#" aria-label="TikTok" class="social-icon">&#9835;</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-row">
+        <a href="#">Home</a>
+        <a href="#">Movies</a>
+        <a href="#">TV Shows</a>
+        <a href="#">New &amp; Popular</a>
+        <a href="#">My List</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Get new release alerts straight to your inbox</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom-center">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 StreamVault, Inc. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

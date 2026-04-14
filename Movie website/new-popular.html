@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New &amp; Popular – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Movies.html">Movies</a></li>
+      <li><a href="Tv Shows.html">TV Shows</a></li>
+      <li><a href="new-popular.html" class="active">New &amp; Popular</a></li>
+      <li><a href="My List.html">My List</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..."
+          autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Slider -->
+  <section class="np-hero" style="margin-top:64px">
+    <div class="np-slider-track" id="npTrack">
+
+      <!-- Slide 1 -->
+      <div class="np-slide">
+        <img class="np-hero-img"
+          src="https://tse1.mm.bing.net/th/id/OIP.vKlqq0AasahB0IZE6wYrSAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Dark Horizon" />
+        <div class="np-hero-overlay"></div>
+        <div class="np-hero-content">
+          <span class="tv-slide-badge np-slide-badge">&#128293; Trending #1 This Week</span>
+          <h1 class="np-hero-title">Dark Horizon</h1>
+          <p class="np-hero-desc">A rogue AI awakens in deep space, forcing a crew of astronauts to make an impossible
+            choice between survival and humanity.</p>
+          <p class="np-hero-meta">2024 &nbsp;&middot;&nbsp; 2h 18m &nbsp;&middot;&nbsp; Action &middot; Sci-Fi
+            &nbsp;&middot;&nbsp; &#11088; 4.9</p>
+          <div class="np-hero-actions">
+            <button class="btn btn-primary" onclick="openPlayer('NIJFpgU18gY','Dark Horizon')">&#9654; Watch
+              Now</button>
+            <button class="btn btn-secondary">+ My List</button>
+            <button class="btn btn-ghost">&#9432; More Info</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="np-slide">
+        <img class="np-hero-img"
+          src="https://t3.ftcdn.net/jpg/07/12/05/78/360_F_712057808_fJ4bGJPStEYjkQHytlYXoZkxp6T5sH2A.jpg"
+          alt="Echoes of Tomorrow" />
+        <div class="np-hero-overlay"></div>
+        <div class="np-hero-content">
+          <span class="tv-slide-badge np-slide-badge">&#127381; New Arrival</span>
+          <h1 class="np-hero-title">Forbidden Fruits</h1>
+          <p class="np-hero-desc">When a scientist discovers she can receive memories from the future, she must decide
+            whether to change fate or let it unfold.</p>
+          <p class="np-hero-meta">2024 &nbsp;&middot;&nbsp; 1h 54m &nbsp;&middot;&nbsp; Sci-Fi &middot; Mystery
+            &nbsp;&middot;&nbsp; &#11088; 4.8</p>
+          <div class="np-hero-actions">
+            <button class="btn btn-primary" onclick="openPlayer('5KESiLdE5uU','Echoes of Tomorrow')">&#9654; Watch
+              Now</button>
+            <button class="btn btn-secondary">+ My List</button>
+            <button class="btn btn-ghost">&#9432; More Info</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="np-slide">
+        <img class="np-hero-img" src="https://i.ytimg.com/vi/GuCejewteF8/maxresdefault.jpg" alt="Starfall" />
+        <div class="np-hero-overlay"></div>
+        <div class="np-hero-content">
+          <span class="tv-slide-badge np-slide-badge">&#9889; Hot Right Now</span>
+          <h1 class="np-hero-title">Starfall</h1>
+          <p class="np-hero-desc">An ancient prophecy, a fallen kingdom, and one warrior standing between the world and
+            total darkness.</p>
+          <p class="np-hero-meta">2024 &nbsp;&middot;&nbsp; 2h 05m &nbsp;&middot;&nbsp; Fantasy &middot; Action
+            &nbsp;&middot;&nbsp; &#11088; 4.7</p>
+          <div class="np-hero-actions">
+            <button class="btn btn-primary" onclick="openPlayer('ByXuk9QqQkk','Starfall')">&#9654; Watch Now</button>
+            <button class="btn btn-secondary">+ My List</button>
+            <button class="btn btn-ghost">&#9432; More Info</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Arrows -->
+    <button class="tv-slider-arrow left" id="npPrev">&#8592;</button>
+    <button class="tv-slider-arrow right" id="npNext">&#8594;</button>
+
+    <!-- Dots -->
+    <div class="tv-slider-dots" id="npDots">
+      <button class="tv-slider-dot active"></button>
+      <button class="tv-slider-dot"></button>
+      <button class="tv-slider-dot"></button>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="np-stats-bar">
+      <div class="np-stat"><span class="np-stat-num">120+</span><span class="np-stat-label">New This Month</span></div>
+      <div class="np-stat-divider"></div>
+      <div class="np-stat"><span class="np-stat-num">4K</span><span class="np-stat-label">Ultra HD Titles</span></div>
+      <div class="np-stat-divider"></div>
+      <div class="np-stat"><span class="np-stat-num">50+</span><span class="np-stat-label">Genres</span></div>
+      <div class="np-stat-divider"></div>
+      <div class="np-stat"><span class="np-stat-num">Weekly</span><span class="np-stat-label">New Drops</span></div>
+    </div>
+  </section>
+
+  <!-- Ticker Strip -->
+  <div class="np-ticker">
+    <span class="np-ticker-label">🔥 TRENDING</span>
+    <div class="np-ticker-track">
+      <span>Dark Horizon</span><span class="np-ticker-dot">·</span>
+      <span>Echoes of Tomorrow</span><span class="np-ticker-dot">·</span>
+      <span>Starfall</span><span class="np-ticker-dot">·</span>
+      <span>Neon Requiem</span><span class="np-ticker-dot">·</span>
+      <span>Broken Circuit</span><span class="np-ticker-dot">·</span>
+      <span>The Last Signal</span><span class="np-ticker-dot">·</span>
+      <span>Crimson Tide II</span><span class="np-ticker-dot">·</span>
+      <span>Our Planet</span><span class="np-ticker-dot">·</span>
+      <span>Got Talent Global</span><span class="np-ticker-dot">·</span>
+      <span>Survival Island</span><span class="np-ticker-dot">·</span>
+      <!-- duplicate for seamless loop -->
+      <span>Dark Horizon</span><span class="np-ticker-dot">·</span>
+      <span>Echoes of Tomorrow</span><span class="np-ticker-dot">·</span>
+      <span>Starfall</span><span class="np-ticker-dot">·</span>
+      <span>Neon Requiem</span><span class="np-ticker-dot">·</span>
+      <span>Broken Circuit</span><span class="np-ticker-dot">·</span>
+    </div>
+  </div>
+
+  <!-- Section Heading -->
+  <section style="padding: 3rem 4% 0">
+    <h2 class="section-title" style="font-size: clamp(1.6rem, 3vw, 2.2rem)">Explore Our Latest Movies</h2>
+  </section>
+
+  <!-- Coming Very Soon -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#128197; Coming Very Soon</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="comingSoonGrid"></div>
+  </section>
+
+  <!-- Big Upcoming Blockbusters -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#127916; Big Upcoming Blockbusters</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="blockbustersGrid"></div>
+  </section>
+
+  <!-- New Movies Released -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#127775; New Movies Released</h2>
+      <a href="Movies.html" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="newMoviesGrid"></div>
+  </section>
+
+  <!-- Recently Released Movies -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#127381; Recently Released Movies</h2>
+      <a href="Movies.html" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="recentMoviesGrid"></div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose">&times;</button>
+      <div class="player-video-wrap">
+        <video class="player-video" id="playerVideo" controls style="display:none"></video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen
+          allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand-center">
+        <div class="footer-logo">StreamVault</div>
+        <p class="footer-tagline">Your universe of stories, on demand.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+          <a href="#" aria-label="Instagram" class="social-icon">&#128247;</a>
+          <a href="#" aria-label="YouTube" class="social-icon">&#9654;</a>
+          <a href="#" aria-label="TikTok" class="social-icon">&#9835;</a>
+        </div>
+      </div>
+      <div class="footer-nav-row">
+        <a href="index.html">Home</a>
+        <a href="Movies.html">Movies</a>
+        <a href="Tv Shows.html">TV Shows</a>
+        <a href="new-popular.html">New &amp; Popular</a>
+        <a href="My List.html">My List</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+      </div>
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Get new release alerts straight to your inbox</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom-center">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 StreamVault, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="new-popular.js"></script>
+  <script src="chatbot.js"></script>
+  <script>
+    function extractYouTubeID(url) {
+      if (!url) return null;
+      // If it's already an 11-char ID, just return it
+      if (url.length === 11 && !url.includes('/') && !url.includes('.')) return url;
+      var match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+      return match ? match[1] : null;
+    }
+
+    // Hero Slider
+    var npTrack = document.getElementById('npTrack');
+    var npDots = document.querySelectorAll('#npDots .tv-slider-dot');
+    var npCurrent = 0;
+    var npTotal = 3;
+    var npTimer;
+
+    function npGoTo(i) {
+      npCurrent = i;
+      npTrack.style.transform = 'translateX(-' + (i * 100) + '%)';
+      npDots.forEach(function (d, idx) { d.classList.toggle('active', idx === i); });
+    }
+
+    function npResetTimer() {
+      clearInterval(npTimer);
+      npTimer = setInterval(function () { npGoTo((npCurrent + 1) % npTotal); }, 6000);
+    }
+
+    document.getElementById('npNext').addEventListener('click', function () { npGoTo((npCurrent + 1) % npTotal); npResetTimer(); });
+    document.getElementById('npPrev').addEventListener('click', function () { npGoTo((npCurrent - 1 + npTotal) % npTotal); npResetTimer(); });
+    npDots.forEach(function (d, i) { d.addEventListener('click', function () { npGoTo(i); npResetTimer(); }); });
+    npTimer = setInterval(function () { npGoTo((npCurrent + 1) % npTotal); }, 6000);
+
+    // Big Upcoming Blockbusters
+    var blockbusters = [
+      { title: 'Titan Rising', genre: 'Action · Sci-Fi', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse3.mm.bing.net/th/id/OIP.cN-RSRUO83lwievUuYSI5QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Omega Protocol', genre: 'Spy · Action', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse1.mm.bing.net/th/id/OIP.4UBmzySch2WW1TpzuNjy6wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'The Last Empire', genre: 'Fantasy · Epic', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse3.mm.bing.net/th/id/OIP.wSzbCbkWMc6TU5dlr0GRiAHaLG?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Galactic Storm', genre: 'Sci-Fi · Adventure', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse2.mm.bing.net/th/id/OIP.cSGZLH6YOG_Z2CZd_JrUHgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Iron Veil', genre: 'Action · Thriller', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse3.mm.bing.net/th/id/OIP.XxTVBzIzv_J08HvpA9qVAAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Crimson Tide III', genre: 'Action · War', year: 2026, rating: 'TBA', badge: 'Blockbuster', img: 'https://tse3.mm.bing.net/th/id/OIP.3tJPYOwppYUBdPC_1sPpGAHaE9?rs=1&pid=ImgDetMain&o=7&rm=3' },
+    ];
+
+    var bbGrid = document.getElementById('blockbustersGrid');
+    blockbusters.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        '<span class="adv-badge" style="background:linear-gradient(135deg,#e50914,#ff6b35)">' + m.badge + '</span>' +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:0%"></div></div>' +
+        '<span class="adv-rating-val" style="color:#aaa">TBA</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn list" style="width:100%">&#128276; Notify Me</button>' +
+        '</div>' +
+        '</div>';
+      bbGrid.appendChild(card);
+    });
+
+    // Coming Very Soon
+    var comingSoon = [
+      { title: 'Shadow Protocol', genre: 'Spy · Thriller', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://tse1.mm.bing.net/th/id/OIP.4UBmzySch2WW1TpzuNjy6wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Void Runner', genre: 'Sci-Fi · Action', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://tse2.mm.bing.net/th/id/OIP.7ZgswEd3JEtEVKYzjWSlywHaEK?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Neon City', genre: 'Neo-Noir · Crime', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://tse4.mm.bing.net/th/id/OIP.yPR6Phs6mXP_fJRtNH80PgHaK4?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Crimson Tide III', genre: 'Action · War', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://tse3.mm.bing.net/th/id/OIP.3tJPYOwppYUBdPC_1sPpGAHaE9?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'The Grid: Season 3', genre: 'Sci-Fi · Drama', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://tse2.mm.bing.net/th/id/OIP.PAxdeW_4Ns6Fidv13iwSTQHaEO?rs=1&pid=ImgDetMain&o=7&rm=3' },
+      { title: 'Wild Frontier S2', genre: 'Western · Adventure', year: 2026, rating: 'TBA', badge: 'Coming Soon', img: 'https://th.bing.com/th/id/R.bdfcb491147a63c0981fe9ca15b410ec?rik=DpAIkeCyRTE4QQ&pid=ImgRaw&r=0' },
+    ];
+
+    var csGrid = document.getElementById('comingSoonGrid');
+    comingSoon.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        '<span class="adv-badge" style="background:#7c3aed">' + m.badge + '</span>' +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:0%"></div></div>' +
+        '<span class="adv-rating-val" style="color:#aaa">TBA</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn list" style="width:100%">&#128276; Notify Me</button>' +
+        '</div>' +
+        '</div>';
+      csGrid.appendChild(card);
+    });
+
+    // New Movies Released
+    var newMovies = [
+      { title: 'Neon Requiem', genre: 'Crime · Neo-Noir', year: 2023, rating: '4.7', badge: 'Top Pick', img: 'https://tse1.mm.bing.net/th/id/OIP.ivpM86SDLfEdHqm60IZZ_gHaLH?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'fznMYLhi0HQ' },
+      { title: 'Broken Circuit', genre: 'Cyberpunk · Drama', year: 2023, rating: '4.6', badge: 'New', img: 'https://tse3.mm.bing.net/th/id/OIP.XxTVBzIzv_J08HvpA9qVAAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: '76zO21Z5cog' },
+      { title: 'Phantom Protocol', genre: 'Spy · Thriller', year: 2023, rating: '4.5', badge: null, img: 'https://tse1.mm.bing.net/th/id/OIP.4UBmzySch2WW1TpzuNjy6wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'HPB7fV7f_f8' },
+      { title: 'The Last Signal', genre: 'Thriller · Drama', year: 2023, rating: '4.6', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.7ZgswEd3JEtEVKYzjWSlywHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: '2eGiL4jwGjs' },
+      { title: 'Blood Meridian', genre: 'Western · War', year: 2023, rating: '4.7', badge: 'Hot', img: 'https://th.bing.com/th/id/OIP.b6RqZm6_FRyz9PNoj5eXqgHaEo?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'G3JkBXslZUE' },
+      { title: 'Office Chaos', genre: 'Comedy · Satire', year: 2023, rating: '4.5', badge: null, img: 'https://m.media-amazon.com/images/M/MV5BMjA5OTYyMjg0NV5BMl5BanBnXkFtZTgwOTI3NTU2MDI@._V1_QL75_UX500_CR0,47,500,281_.jpg', youtube: 'OJj93V-HR8U' },
+      { title: 'Dust & Gunpowder', genre: 'Western · Action', year: 2023, rating: '4.5', badge: 'Top Pick', img: 'https://www.comingsoon.net/wp-content/uploads/sites/3/2023/03/Gunpowder_Still-e1678537977648.jpg?resize=1200,630', youtube: 'Gv-p1i68l5g' },
+      { title: 'Accidental Hero', genre: 'Comedy · Action', year: 2023, rating: '4.4', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.ODQZX96xLQ045DpO2reRtAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'BQ0mxQXmLsk' },
+    ];
+
+    var nmGrid = document.getElementById('newMoviesGrid');
+    newMovies.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">&#11088; ' + m.rating + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play" ' + (!m.youtube ? 'disabled style="opacity:.4"' : '') + '>&#9654; Watch</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+      if (m.youtube) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(m.youtube, m.title));
+      }
+      nmGrid.appendChild(card);
+    });
+
+    // Recently Released Movies
+    var recentMovies = [
+      { title: 'Dark Horizon', genre: 'Action · Sci-Fi', year: 2024, rating: '4.9', badge: 'Trending', img: 'https://tse3.mm.bing.net/th/id/OIP.cN-RSRUO83lwievUuYSI5QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'NIJFpgU18gY' },
+      { title: 'Echoes of Tomorrow', genre: 'Sci-Fi · Mystery', year: 2024, rating: '4.8', badge: 'New', img: 'https://tse2.mm.bing.net/th/id/OIP.cSGZLH6YOG_Z2CZd_JrUHgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: '5KESiLdE5uU' },
+      { title: 'Starfall', genre: 'Fantasy · Action', year: 2024, rating: '4.7', badge: 'Hot', img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Crimson Tide II', genre: 'Action · War', year: 2024, rating: '4.5', badge: 'Sequel', img: 'https://th.bing.com/th?id=OIF.IH1uZTLGw%2bvR8yEsWkl61Q&rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'JNiK-rfzZPE' },
+      { title: 'The Last Frontier', genre: 'Western · Drama', year: 2024, rating: '4.6', badge: 'New', img: 'https://tse2.mm.bing.net/th/id/OIP.LyIyJPN0kyF7-bTisoN_FAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'Y_O7puXja-E' },
+      { title: 'Laugh Track', genre: 'Comedy · Drama', year: 2024, rating: '4.1', badge: 'New', img: 'https://tse3.mm.bing.net/th/id/OIP.ThkJiM7rc7QWUJG9QWMUtgHaEp?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'hY7m5jjJ9mM' },
+      { title: 'The Wrong Address', genre: 'Comedy · Mystery', year: 2024, rating: '4.2', badge: 'Hot', img: 'https://tse3.mm.bing.net/th/id/OIP.ziRhzDFcUMSSvLhx_RX9ggHaFU?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'Mc0qH0W745o' },
+      { title: 'Sundown Riders', genre: 'Western · Adventure', year: 2024, rating: '4.4', badge: null, img: 'https://m.media-amazon.com/images/I/81cRsRxtJVL._SL1500_.jpg', youtube: 'fUQrkAzJ53U' },
+    ];
+
+    var grid = document.getElementById('recentMoviesGrid');
+    recentMovies.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">&#11088; ' + m.rating + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play" ' + (!m.youtube ? 'disabled style="opacity:.4"' : '') + '>&#9654; Watch</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+      if (m.youtube) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(m.youtube, m.title));
+      }
+      grid.appendChild(card);
+    });
+
+    // ══════════════════════════════════════
+    // SV SEARCH
+    // ══════════════════════════════════════
+    (function () {
+      const wrap = document.getElementById('svSearch');
+      const btn = document.getElementById('svSearchBtn');
+      const input = document.getElementById('svSearchInput');
+      const results = document.getElementById('svSearchResults');
+      if (!wrap || !btn || !input || !results) return;
+
+      wrap.style.position = 'relative';
+      wrap.style.display = 'flex';
+      wrap.style.alignItems = 'center';
+
+      results.style.display = 'none';
+      results.style.position = 'absolute';
+      results.style.top = '100%';
+      results.style.right = '0';
+      results.style.width = '320px';
+      results.style.background = '#141414';
+      results.style.border = '1px solid rgba(255,255,255,0.12)';
+      results.style.borderRadius = '8px';
+      results.style.boxShadow = '0 16px 48px rgba(0,0,0,0.85)';
+      results.style.zIndex = '9999';
+      results.style.maxHeight = '440px';
+      results.style.overflowY = 'auto';
+
+      var ALL_MOVIES = [].concat(blockbusters, comingSoon, newMovies, recentMovies);
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        input.style.width = input.style.width === '200px' ? '0px' : '200px';
+        input.style.opacity = input.style.opacity === '1' ? '0' : '1';
+        input.style.cursor = 'text';
+        input.style.border = 'none';
+        input.style.background = 'transparent';
+        input.style.color = '#fff';
+        input.style.padding = '5px';
+        input.style.outline = 'none';
+
+        if (input.style.width === '200px') {
+          setTimeout(function () { input.focus(); }, 100);
+        } else {
+          input.value = '';
+          hideResults();
+        }
+      });
+
+      input.addEventListener('input', function () {
+        const q = input.value.trim().toLowerCase();
+        if (!q) { hideResults(); return; }
+        const hits = ALL_MOVIES.filter(function (m) {
+          return m.title.toLowerCase().includes(q) ||
+            (m.genre && m.genre.toLowerCase().includes(q)) ||
+            (m.year && String(m.year).includes(q));
+        });
+        showResults(hits, q);
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { input.value = ''; hideResults(); }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) { input.value = ''; hideResults(); }
+      });
+
+      function highlight(text, q) {
+        const idx = text.toLowerCase().indexOf(q);
+        if (idx === -1) return text;
+        return text.slice(0, idx) + '<mark style="background:#e50914;color:#fff;border-radius:2px;padding:0 1px">' + text.slice(idx, idx + q.length) + '</mark>' + text.slice(idx + q.length);
+      }
+
+      function hideResults() {
+        results.style.display = 'none';
+        results.innerHTML = '';
+      }
+
+      function showResults(hits, q) {
+        results.innerHTML = '';
+        if (!hits.length) {
+          results.innerHTML = '<p style="padding:20px;text-align:center;color:#555;font-size:0.85rem;">No results for "<strong style="color:#fff">' + q + '</strong>"</p>';
+          results.style.display = 'block';
+          return;
+        }
+
+        var uniqueHits = [];
+        var titles = new Set();
+        for (var i = 0; i < hits.length; i++) {
+          if (!titles.has(hits[i].title)) {
+            uniqueHits.push(hits[i]);
+            titles.add(hits[i].title);
+          }
+        }
+
+        uniqueHits.slice(0, 10).forEach(function (movie) {
+          const item = document.createElement('div');
+          item.style.display = 'flex';
+          item.style.alignItems = 'center';
+          item.style.gap = '12px';
+          item.style.padding = '10px 14px';
+          item.style.cursor = 'pointer';
+          item.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
+
+          var vid = movie.youtubeUrl ? extractYouTubeID(movie.youtubeUrl) : extractYouTubeID(movie.youtube);
+
+          item.innerHTML =
+            '<img src="' + movie.img + '" alt="' + movie.title + '" style="width:44px; height:60px; border-radius:4px; object-fit:cover; flex-shrink:0; background:#222;" />' +
+            '<div style="display:flex; flex-direction:column; gap:3px; flex:1; min-width:0;">' +
+            '<div style="font-size:0.88rem; font-weight:600; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">' + highlight(movie.title, q) + '</div>' +
+            '<div style="font-size:0.72rem; color:#888;">' + movie.year + ' · ' + movie.genre + ' · ⭐ ' + movie.rating + '</div>' +
+            '</div>' +
+            (vid ? '<button style="background:#e50914; border:none; color:#fff; width:28px; height:28px; border-radius:50%; font-size:0.7rem; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center;">▶</button>' : '');
+
+          item.onmouseover = function () { item.style.background = 'rgba(255,255,255,0.07)'; };
+          item.onmouseout = function () { item.style.background = 'transparent'; };
+
+          item.addEventListener('click', function () {
+            input.value = movie.title;
+            hideResults();
+          });
+
+          if (vid) {
+            item.querySelector('button').addEventListener('click', function (e) {
+              e.stopPropagation();
+              hideResults();
+              input.value = '';
+              openPlayer(vid, movie.title);
+            });
+          }
+          results.appendChild(item);
+        });
+        results.style.display = 'block';
+      }
+    })();
+  </script>
+  <script src="admin.js"></script>
+</body>
+
+</html>

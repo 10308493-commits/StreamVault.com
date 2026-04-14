@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My List – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Movies.html">Movies</a></li>
+      <li><a href="Tv Shows.html">TV Shows</a></li>
+      <li><a href="new-popular.html">New &amp; Popular</a></li>
+      <li><a href="My List.html" class="active">My List</a></li>
+    </ul>
+    <div class="nav-actions">
+
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..."
+          autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- My List Hero -->
+  <section class="ml-hero" style="margin-top:64px">
+
+    <!-- Mosaic poster wall -->
+    <div class="ml-mosaic">
+      <div class="ml-mosaic-col">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.cN-RSRUO83lwievUuYSI5QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://tse1.mm.bing.net/th/id/OIP.ivpM86SDLfEdHqm60IZZ_gHaLH?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://tse2.mm.bing.net/th/id/OIP.cSGZLH6YOG_Z2CZd_JrUHgHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+      </div>
+      <div class="ml-mosaic-col ml-mosaic-col--offset">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.XxTVBzIzv_J08HvpA9qVAAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://image.tmdb.org/t/p/original/pNsw71rQcCiRUknCOLHosuxPpew.jpg" alt="" />
+        <img src="https://tse2.mm.bing.net/th/id/OIP.7ZgswEd3JEtEVKYzjWSlywHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://tse4.mm.bing.net/th/id/OIP.yPR6Phs6mXP_fJRtNH80PgHaK4?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+      </div>
+      <div class="ml-mosaic-col">
+        <img src="https://th.bing.com/th/id/OIP.b6RqZm6_FRyz9PNoj5eXqgHaEo?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="" />
+        <img src="https://tse1.mm.bing.net/th/id/OIP.4UBmzySch2WW1TpzuNjy6wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+        <img src="https://i.ytimg.com/vi/xCi-EobWxrc/maxresdefault.jpg" alt="" />
+        <img src="https://tse3.mm.bing.net/th/id/OIP.3tJPYOwppYUBdPC_1sPpGAHaE9?rs=1&pid=ImgDetMain&o=7&rm=3" alt="" />
+      </div>
+    </div>
+
+    <!-- Dark gradient overlay -->
+    <div class="ml-mosaic-overlay"></div>
+
+    <!-- Centred content -->
+    <div class="ml-hero-center">
+      <span class="ml-hero-tag">&#10084; Your Personal Collection</span>
+      <h1 class="ml-hero-title">My List</h1>
+      <p class="ml-hero-desc">Every title you've saved, all in one place. Ready to watch whenever you are.</p>
+
+      <!-- Animated category strip -->
+      <div class="ml-cat-strip">
+        <div class="ml-cat-track">
+          <span class="ml-cat-item">&#127909; Action</span>
+          <span class="ml-cat-item">&#128640; Sci-Fi</span>
+          <span class="ml-cat-item">&#9876;&#65039; Thriller</span>
+          <span class="ml-cat-item">&#127981; Drama</span>
+          <span class="ml-cat-item">&#128123; Horror</span>
+          <span class="ml-cat-item">&#128518; Comedy</span>
+          <span class="ml-cat-item">&#9876;&#65039; Fantasy</span>
+          <span class="ml-cat-item">&#127757; Adventure</span>
+          <span class="ml-cat-item">&#128250; TV Shows</span>
+          <span class="ml-cat-item">&#127902;&#65039; Documentary</span>
+          <span class="ml-cat-item">&#127925; Music</span>
+          <span class="ml-cat-item">&#11088; Top Rated</span>
+          <!-- duplicate for seamless loop -->
+          <span class="ml-cat-item">&#127909; Action</span>
+          <span class="ml-cat-item">&#128640; Sci-Fi</span>
+          <span class="ml-cat-item">&#9876;&#65039; Thriller</span>
+          <span class="ml-cat-item">&#127981; Drama</span>
+          <span class="ml-cat-item">&#128123; Horror</span>
+          <span class="ml-cat-item">&#128518; Comedy</span>
+          <span class="ml-cat-item">&#9876;&#65039; Fantasy</span>
+          <span class="ml-cat-item">&#127757; Adventure</span>
+          <span class="ml-cat-item">&#128250; TV Shows</span>
+          <span class="ml-cat-item">&#127902;&#65039; Documentary</span>
+          <span class="ml-cat-item">&#127925; Music</span>
+          <span class="ml-cat-item">&#11088; Top Rated</span>
+        </div>
+      </div>
+
+      <div class="ml-hero-actions">
+        <button class="btn btn-primary" style="padding:14px 36px;font-size:1rem">&#9654; Play All</button>
+        <button class="btn btn-secondary" style="padding:14px 36px;font-size:1rem">&#128247; Share List</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Filter & Sort Bar -->
+  <div class="ml-filter-bar">
+    <div class="ml-filter-tabs" id="mlFilterTabs">
+      <button class="ml-filter-tab active" data-filter="all">All</button>
+      <button class="ml-filter-tab" data-filter="action">&#128293; Action</button>
+      <button class="ml-filter-tab" data-filter="comedy">&#128518; Comedy</button>
+      <button class="ml-filter-tab" data-filter="fantasy">&#9876;&#65039; Fantasy</button>
+      <button class="ml-filter-tab" data-filter="music">&#127925; Music</button>
+    </div>
+    <div class="ml-sort-wrap">
+      <select class="ml-sort-select" id="mlSort">
+        <option value="default">Sort: Default</option>
+        <option value="rating">Highest Rated</option>
+        <option value="year">Newest First</option>
+        <option value="az">A – Z</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Mood Picker -->
+  <section class="ml-mood-section">
+    <h2 class="section-title" style="padding:0 4% 1.2rem">&#127775; What's Your Mood?</h2>
+    <div class="ml-mood-grid">
+      <button class="ml-mood-card" style="--mc:#e50914" data-mood="action">
+        <span class="ml-mood-emoji">&#128293;</span>
+        <span class="ml-mood-label">Pumped Up</span>
+        <span class="ml-mood-sub">Action & Thrillers</span>
+      </button>
+      <button class="ml-mood-card" style="--mc:#7c3aed" data-mood="fantasy">
+        <span class="ml-mood-emoji">&#9876;&#65039;</span>
+        <span class="ml-mood-label">Escape Reality</span>
+        <span class="ml-mood-sub">Fantasy & Sci-Fi</span>
+      </button>
+      <button class="ml-mood-card" style="--mc:#059669" data-mood="comedy">
+        <span class="ml-mood-emoji">&#128518;</span>
+        <span class="ml-mood-label">Need a Laugh</span>
+        <span class="ml-mood-sub">Comedy & Fun</span>
+      </button>
+      <button class="ml-mood-card" style="--mc:#d97706" data-mood="music">
+        <span class="ml-mood-emoji">&#127925;</span>
+        <span class="ml-mood-label">Feel the Beat</span>
+        <span class="ml-mood-sub">Music & Concerts</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Top Pick of the Day -->
+  <section class="ml-spotlight">
+    <div class="ml-spotlight-inner">
+      <div class="ml-spotlight-badge">&#127942; Top Pick of the Day</div>
+      <div class="ml-spotlight-content">
+        <img class="ml-spotlight-img"
+          src="https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+          alt="Dark Horizon" />
+        <div class="ml-spotlight-info">
+          <span class="ml-spotlight-genre">Action · Sci-Fi · 2024</span>
+          <h2 class="ml-spotlight-title">Dark Horizon</h2>
+          <p class="ml-spotlight-desc">A rogue AI awakens in deep space, forcing a crew of astronauts to make an
+            impossible choice between survival and humanity.</p>
+          <div class="ml-spotlight-meta">
+            <span class="ml-spotlight-rating">&#11088; 4.9</span>
+            <span class="ml-spotlight-dot">·</span>
+            <span>2h 18m</span>
+            <span class="ml-spotlight-dot">·</span>
+            <span>TV-MA</span>
+          </div>
+          <div class="ml-spotlight-actions">
+            <button class="btn btn-primary" onclick="openPlayer('NIJFpgU18gY', 'Dark Horizon')">&#9654; Watch
+              Now</button>
+            <button class="btn btn-secondary">+ My List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recently Added to List -->
+  <section class="featured" style="padding-bottom:0.5rem">
+    <div class="featured-header">
+      <h2 class="section-title">&#128197; Recently Added</h2>
+      <a href="#" class="see-all">View All &rarr;</a>
+    </div>
+    <div class="cw-row" id="mlRecentRow"></div>
+  </section>
+
+  <!-- Watch Party Banner -->
+  <div class="ml-watch-party">
+    <div class="ml-wp-glow"></div>
+    <div class="ml-wp-content">
+      <span class="ml-wp-icon">&#127881;</span>
+      <div>
+        <h3 class="ml-wp-title">Start a Watch Party</h3>
+        <p class="ml-wp-desc">Invite friends and watch together in real time — no matter where they are.</p>
+      </div>
+      <button class="btn btn-primary ml-wp-btn" id="mlWpOpenBtn">&#128279; Create Party</button>
+    </div>
+  </div>
+
+  <!-- Watch Party Modal -->
+  <div class="ml-wp-modal" id="mlWpModal">
+    <div class="ml-wp-modal-backdrop"></div>
+    <div class="ml-wp-modal-card">
+      <button class="ml-wp-modal-close" id="mlWpClose">&times;</button>
+      <div class="ml-wp-modal-header">
+        <span class="ml-wp-modal-icon">&#127881;</span>
+        <h2 class="ml-wp-modal-title">Create a Watch Party</h2>
+        <p class="ml-wp-modal-sub">Set it up and share the link — your friends join instantly.</p>
+      </div>
+
+      <form class="ml-wp-form" id="mlWpForm" novalidate>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Your Name</label>
+          <input class="ml-wp-input" id="wpName" type="text" placeholder="e.g. John" required />
+        </div>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Party Name</label>
+          <input class="ml-wp-input" id="wpPartyName" type="text" placeholder="e.g. Friday Night Movies" required />
+        </div>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Pick a Title to Watch</label>
+          <select class="ml-wp-input" id="wpTitle">
+            <option value="">— Select a title —</option>
+            <option>Dark Horizon</option>
+            <option>Starfall</option>
+            <option>Neon Requiem</option>
+            <option>Broken Circuit</option>
+            <option>Crimson Tide II</option>
+            <option>Unplugged Live</option>
+            <option>The Grand Bluff</option>
+            <option>Office Chaos</option>
+          </select>
+        </div>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Invite Friends (emails, comma separated)</label>
+          <input class="ml-wp-input" id="wpEmails" type="text" placeholder="friend1@email.com, friend2@email.com" />
+        </div>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Schedule (optional)</label>
+          <input class="ml-wp-input" id="wpDate" type="datetime-local" />
+        </div>
+        <div class="ml-wp-field">
+          <label class="ml-wp-label">Max Guests</label>
+          <div class="ml-wp-guests-row">
+            <button type="button" class="ml-wp-guest-btn" id="wpGuestMinus">&#8722;</button>
+            <span class="ml-wp-guest-count" id="wpGuestCount">4</span>
+            <button type="button" class="ml-wp-guest-btn" id="wpGuestPlus">&#43;</button>
+          </div>
+        </div>
+        <p class="ml-wp-err" id="wpErr"></p>
+        <button type="submit" class="ml-wp-submit">&#127881; Create Party</button>
+      </form>
+
+      <!-- Success State -->
+      <div class="ml-wp-success" id="mlWpSuccess" style="display:none">
+        <div class="ml-wp-success-icon">&#10003;</div>
+        <h3 class="ml-wp-success-title">Party Created!</h3>
+        <p class="ml-wp-success-sub">Share this link with your friends:</p>
+        <div class="ml-wp-link-row">
+          <span class="ml-wp-link" id="wpShareLink"></span>
+          <button class="ml-wp-copy-btn" id="wpCopyBtn">&#128203; Copy</button>
+        </div>
+        <p class="ml-wp-copied" id="wpCopied" style="display:none">&#10003; Copied!</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Continue Watching -->
+  <section class="featured" style="padding-bottom:0">
+    <div class="featured-header">
+      <h2 class="section-title">&#9654; Continue Watching</h2>
+      <a href="watch-history.html" class="see-all">Watch History &rarr;</a>
+    </div>
+    <div class="cw-row" id="mlCwRow"></div>
+  </section>
+
+  <!-- Stats Summary -->
+  <div class="ml-stats-bar">
+    <div class="ml-stats-item"><span class="ml-stats-num">24</span><span class="ml-stats-lbl">Saved Titles</span></div>
+    <div class="ml-stats-div"></div>
+    <div class="ml-stats-item"><span class="ml-stats-num">4</span><span class="ml-stats-lbl">Genres</span></div>
+    <div class="ml-stats-div"></div>
+    <div class="ml-stats-item"><span class="ml-stats-num">&#11088; 4.5</span><span class="ml-stats-lbl">Avg
+        Rating</span></div>
+    <div class="ml-stats-div"></div>
+    <div class="ml-stats-item"><span class="ml-stats-num">6</span><span class="ml-stats-lbl">Coming Soon</span></div>
+  </div>
+
+  <!-- Music Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#127925; Music</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="musicGrid"></div>
+  </section>
+
+  <!-- Action Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#128293; Action</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="actionGrid"></div>
+  </section>
+
+  <!-- Comedy Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#128518; Comedy</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="comedyGrid"></div>
+  </section>
+
+  <!-- Fantasy Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">&#9876;&#65039; Fantasy</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="fantasyGrid"></div>
+  </section>
+
+  <!-- Video Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose">&times;</button>
+      <div class="player-video-wrap">
+        <video class="player-video" id="playerVideo" controls style="display:none"></video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen
+          allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+        <a class="player-yt-btn" id="playerYtBtn" href="#" target="_blank" rel="noopener">
+          &#9654; Watch on YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand-center">
+        <div class="footer-logo">StreamVault</div>
+        <p class="footer-tagline">Your universe of stories, on demand.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+          <a href="#" aria-label="Instagram" class="social-icon">&#128247;</a>
+          <a href="#" aria-label="YouTube" class="social-icon">&#9654;</a>
+          <a href="#" aria-label="TikTok" class="social-icon">&#9835;</a>
+        </div>
+      </div>
+      <div class="footer-nav-row">
+        <a href="index.html">Home</a>
+        <a href="Movies.html">Movies</a>
+        <a href="Tv Shows.html">TV Shows</a>
+        <a href="new-popular.html">New &amp; Popular</a>
+        <a href="My List.html">My List</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+      </div>
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Get new release alerts straight to your inbox</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-divider"></div>
+      <div class="footer-bottom-center">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 StreamVault, Inc. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Player Code
+    function openPlayer(youtubeId, title, start) {
+      const modal = document.getElementById('playerModal');
+      const iframe = document.getElementById('playerIframe');
+      const video = document.getElementById('playerVideo');
+      const titleEl = document.getElementById('playerTitle');
+      const ytBtn = document.getElementById('playerYtBtn');
+
+      var startParam = start ? '&start=' + start : '';
+      iframe.src = 'https://www.youtube.com/embed/' + youtubeId + '?autoplay=1&rel=0' + startParam;
+      iframe.style.display = 'block';
+      video.style.display = 'none';
+      if (titleEl) titleEl.textContent = title || '';
+      if (ytBtn) ytBtn.href = 'https://www.youtube.com/watch?v=' + youtubeId + (start ? '&t=' + start : '');
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closePlayer() {
+      const modal = document.getElementById('playerModal');
+      const iframe = document.getElementById('playerIframe');
+      const video = document.getElementById('playerVideo');
+      if (iframe) iframe.src = '';
+      if (video) { video.pause(); video.src = ''; }
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('playerClose').addEventListener('click', closePlayer);
+    document.getElementById('playerModal').addEventListener('click', function (e) {
+      if (e.target === document.getElementById('playerModal')) closePlayer();
+    });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePlayer(); });
+
+    // Navbar
+    document.getElementById('hamburger').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+    window.addEventListener('scroll', function () {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 10);
+    });
+    document.getElementById('avatarBtn').addEventListener('click', function (e) {
+      e.stopPropagation();
+      document.getElementById('navAccount').classList.toggle('open');
+    });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('#navAccount')) document.getElementById('navAccount').classList.remove('open');
+    });
+
+    // Auth
+    (function () {
+      var session = JSON.parse(localStorage.getItem('sv_session') || 'null');
+      if (session) {
+        var ini = session.name.trim().split(' ').map(function (w) { return w[0]; }).join('').toUpperCase().slice(0, 2);
+        document.getElementById('avatarBtn').textContent = ini;
+        var n = document.querySelector('.account-name'); if (n) n.textContent = session.name;
+        var em = document.querySelector('.account-email'); if (em) em.textContent = session.email;
+      }
+      var so = document.querySelector('.account-signout');
+      if (so) so.addEventListener('click', function (e) { e.preventDefault(); localStorage.removeItem('sv_session'); window.location.href = 'auth.html'; });
+    })();
+
+    // Continue Watching
+    var cwItems = [
+      { title: 'Dark Horizon', meta: 'Action · Sci-Fi', progress: 68, img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'NIJFpgU18gY' },
+      { title: 'Neon Requiem', meta: 'Crime · Neo-Noir', progress: 42, img: 'https://tse1.mm.bing.net/th/id/OIP.ivpM86SDLfEdHqm60IZZ_gHaLH?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: '2P2QttzbqAU' },
+      { title: 'Starfall', meta: 'Fantasy · Action', progress: 85, img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Broken Circuit', meta: 'Cyberpunk · Drama', progress: 20, img: 'https://tse3.mm.bing.net/th/id/OIP.XxTVBzIzv_J08HvpA9qVAAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'PXLkapBHD5w' },
+    ];
+    var cwRow = document.getElementById('mlCwRow');
+    cwItems.forEach(function (item) {
+      var card = document.createElement('div');
+      card.className = 'cw-card';
+      card.style.cursor = 'pointer';
+      card.innerHTML =
+        '<div class="cw-thumb-wrap">' +
+        '<img class="cw-thumb" src="' + item.img + '" alt="' + item.title + '" loading="lazy" />' +
+        '<div class="cw-play-overlay"><div class="cw-play-icon">&#9654;</div></div>' +
+        '<div class="cw-progress-bar" style="width:' + item.progress + '%"></div>' +
+        '</div>' +
+        '<div class="cw-info">' +
+        '<div class="cw-title">' + item.title + '</div>' +
+        '<div class="cw-meta"><span>' + item.meta + '</span><span>' + item.progress + '% watched</span></div>' +
+        '</div>';
+      card.addEventListener('click', (function (id, title) {
+        return function () { openPlayer(id, title); };
+      })(item.youtube, item.title));
+      cwRow.appendChild(card);
+    });
+
+    // Filter tabs
+    document.querySelectorAll('.ml-filter-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.ml-filter-tab').forEach(function (t) { t.classList.remove('active'); });
+        tab.classList.add('active');
+        var f = tab.dataset.filter;
+        document.querySelectorAll('.adventure-section').forEach(function (sec) {
+          if (f === 'all') { sec.style.display = ''; return; }
+          var title = sec.querySelector('.section-title').textContent.toLowerCase();
+          sec.style.display = title.includes(f) ? '' : 'none';
+        });
+      });
+    });
+
+    // Watch Party Modal
+    var wpGuests = 4;
+    document.getElementById('mlWpOpenBtn').addEventListener('click', function () {
+      document.getElementById('mlWpModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    function closeWpModal() {
+      document.getElementById('mlWpModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('mlWpClose').addEventListener('click', closeWpModal);
+    document.querySelector('.ml-wp-modal-backdrop').addEventListener('click', closeWpModal);
+
+    document.getElementById('wpGuestMinus').addEventListener('click', function () {
+      if (wpGuests > 1) { wpGuests--; document.getElementById('wpGuestCount').textContent = wpGuests; }
+    });
+    document.getElementById('wpGuestPlus').addEventListener('click', function () {
+      if (wpGuests < 20) { wpGuests++; document.getElementById('wpGuestCount').textContent = wpGuests; }
+    });
+
+    document.getElementById('mlWpForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var name = document.getElementById('wpName').value.trim();
+      var partyName = document.getElementById('wpPartyName').value.trim();
+      var title = document.getElementById('wpTitle').value;
+      var err = document.getElementById('wpErr');
+      if (!name || !partyName || !title) {
+        err.textContent = 'Please fill in your name, party name, and pick a title.';
+        return;
+      }
+      err.textContent = '';
+      var code = Math.random().toString(36).substring(2, 8).toUpperCase();
+      var link = 'streamvault.app/party/' + code;
+      document.getElementById('wpShareLink').textContent = link;
+      document.getElementById('mlWpForm').style.display = 'none';
+      document.getElementById('mlWpSuccess').style.display = 'block';
+    });
+
+
+    document.getElementById('wpCopyBtn').addEventListener('click', function () {
+      var link = document.getElementById('wpShareLink').textContent;
+      navigator.clipboard.writeText(link).catch(function () { });
+      document.getElementById('wpCopied').style.display = 'block';
+      setTimeout(function () { document.getElementById('wpCopied').style.display = 'none'; }, 2000);
+    });
+    document.querySelectorAll('.ml-mood-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('.ml-mood-card').forEach(function (c) { c.classList.remove('active'); });
+        card.classList.add('active');
+        var mood = card.dataset.mood;
+        var match = document.querySelector('.ml-filter-tab[data-filter="' + mood + '"]');
+        if (match) match.click();
+        document.querySelector('.ml-stats-bar').scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Recently Added row
+    var recentAdded = [
+      { title: 'Starfall', meta: 'Fantasy · 2024', img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Unplugged Live', meta: 'Music · 2024', img: 'https://tse3.mm.bing.net/th/id/OIP.g4PVwPXSs1EsOEjYo1jKTAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Crimson Tide II', meta: 'Action · 2024', img: 'https://th.bing.com/th?id=OIF.IH1uZTLGw%2bvR8yEsWkl61Q&rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'JNiK-rfzZPE' },
+      { title: 'Office Chaos', meta: 'Comedy · 2023', img: 'https://tse2.mm.bing.net/th/id/OIP.GhWWKbvEEC8nbdyubfUn9QHaEO?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'hY7m5jjJ9mM' },
+    ];
+    var rrRow = document.getElementById('mlRecentRow');
+    recentAdded.forEach(function (item) {
+      var card = document.createElement('div');
+      card.className = 'cw-card';
+      card.innerHTML =
+        '<div class="cw-thumb-wrap">' +
+        '<img class="cw-thumb" src="' + item.img + '" alt="' + item.title + '" loading="lazy" />' +
+        '<div class="cw-play-overlay"><div class="cw-play-icon">' + (item.noEmbed ? '&#127758;' : '&#9654;') + '</div></div>' +
+        '</div>' +
+        '<div class="cw-info">' +
+        '<div class="cw-title">' + item.title + '</div>' +
+        '<div class="cw-meta"><span>' + item.meta + '</span><span style="color:' + (item.noEmbed ? '#a78bfa' : '#e50914') + '">' + (item.noEmbed ? 'Opens YouTube' : 'Just added') + '</span></div>' +
+        '</div>';
+
+      if (item.youtube) {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (function (id, title, start, noEmbed) {
+          return function () {
+            if (noEmbed) {
+              window.open('https://www.youtube.com/watch?v=' + id + (start ? '&t=' + start : ''), '_blank');
+            } else {
+              openPlayer(id, title, start);
+            }
+          };
+        })(item.youtube, item.title, item.start || null, item.noEmbed || false));
+      } else {
+        card.addEventListener('click', function () { alert('Player coming soon'); });
+      }
+
+      rrRow.appendChild(card);
+    });
+
+    // Music Section
+    var musicItems = [
+      { title: 'The Stage', genre: 'Music · Reality', year: 2024, rating: '4.7', badge: 'New', img: 'https://static.vecteezy.com/system/resources/previews/020/832/319/large_2x/empty-stage-of-the-theater-simple-minimalist-with-front-view-and-copy-space-lit-by-spotlights-and-smoke-before-the-performance-free-photo.jpg', youtube: 'ju6Q_0jXFE0' },
+      { title: 'Beat Drop', genre: 'Music · Competition', year: 2023, rating: '4.5', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.37RW5Dh0AoIT3qnQ9vVfxgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'JdToBXtffL0' },
+      { title: 'Unplugged Live', meta: 'Music · 2024', img: 'https://tse3.mm.bing.net/th/id/OIP.g4PVwPXSs1EsOEjYo1jKTAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Chart Breakers', genre: 'Music · Talk Show', year: 2023, rating: '4.4', badge: null, img: 'https://tse1.mm.bing.net/th/id/OIP.BmGHGjDz1zDZs2JkufvzlwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: '4pi1euN2zJg' },
+      { title: 'Soul Sessions', genre: 'Music · Documentary', year: 2022, rating: '4.6', badge: null, img: 'https://th.bing.com/th/id/R.ebcd6abfbeaed0dfd132739f59ee47e7?rik=usEL%2bqFKfKKAog&pid=ImgRaw&r=0', youtube: 'P5BZdg2aRVA' },
+      { title: 'The Remix Battle', genre: 'Music · Competition', year: 2024, rating: '4.5', badge: 'Hot', img: 'https://static1.thegamerimages.com/wordpress/wp-content/uploads/2024/11/fortniteremixthefinale.jpg', youtube: 'P1hfFablPBg' },
+    ];
+
+    var mGrid = document.getElementById('musicGrid');
+    musicItems.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">&#11088; ' + m.rating + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play">&#9654; Watch</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+      if (m.youtube) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(m.youtube, m.title));
+      }
+      mGrid.appendChild(card);
+    });
+
+    // Action Section
+    var actionMovies = [
+      { title: 'Dark Horizon', genre: 'Action · Sci-Fi', year: 2024, rating: '4.9', badge: 'Trending', img: 'https://tse3.mm.bing.net/th/id/OIP.cN-RSRUO83lwievUuYSI5QHaE8?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'NIJFpgU18gY' },
+      { title: 'Crimson Tide II', genre: 'Action · War', year: 2024, rating: '4.5', badge: 'Sequel', img: 'https://th.bing.com/th?id=OIF.IH1uZTLGw%2bvR8yEsWkl61Q&rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'JNiK-rfzZPE' },
+      { title: 'Starfall', genre: 'Fantasy · Action', year: 2024, rating: '4.7', badge: 'Hot', img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'ByXuk9QqQkk' },
+      { title: 'Phantom Protocol', genre: 'Spy · Thriller', year: 2023, rating: '4.5', badge: null, img: 'https://tse1.mm.bing.net/th/id/OIP.4UBmzySch2WW1TpzuNjy6wHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'QJGvMtYIDu8' },
+      { title: 'Dust & Gunpowder', genre: 'Western · Action', year: 2023, rating: '4.5', badge: 'Top Pick', img: 'https://www.comingsoon.net/wp-content/uploads/sites/3/2023/03/Gunpowder_Still-e1678537977648.jpg?resize=1200,630', youtube: null },
+      { title: 'Accidental Hero', genre: 'Comedy · Action', year: 2023, rating: '4.4', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.ODQZX96xLQ045DpO2reRtAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/uOA5UzlIwZM', desc: 'An ordinary guy becomes an unlikely savior when he stumbles into a bank heist and relies on pure luck to save the day.' },
+    ];
+
+    function extractYouTubeID(url) {
+      if (!url) return null;
+      var match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/);
+      return match ? match[1] : url;
+    }
+
+    var aGrid = document.getElementById('actionGrid');
+    actionMovies.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+
+      var videoId = m.youtubeUrl ? extractYouTubeID(m.youtubeUrl) : extractYouTubeID(m.youtube);
+      var isAccidentalHero = m.title === 'Accidental Hero';
+
+      var buttonText = isAccidentalHero ? '&#9654; Watch Trailer' : '&#9654; Watch';
+
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        (m.desc ? '<p class="adv-desc" style="font-size: 0.75rem; color: #ccc; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">' + m.desc + '</p>' : '') +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">&#11088; ' + m.rating + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play" ' + (!videoId ? 'disabled style="opacity:.4"' : '') + '>' + buttonText + '</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+
+      if (videoId) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(videoId, m.title));
+      }
+      aGrid.appendChild(card);
+    });
+
+    // Comedy Section
+    var comedyMovies = [
+      { title: 'The Grand Bluff', genre: 'Comedy · Crime', year: 2023, rating: '4.3', badge: 'Fan Fav', img: 'https://www.francetvpro.fr/sites/default/files/styles/crop_format_bandeau/public/telechargements/images/LE%20GRAND%20BLUFF%20Bande%20annonce%20(2024)%20Vanessa%20Feuillatte%2C%20Nahid%20Abdourraquib.jpg.webp?itok=1Z_lKCSO', youtube: 'hY7m5jjJ9mM' },
+      { title: 'Laugh Track', genre: 'Comedy · Drama', year: 2024, rating: '4.1', badge: 'New', img: 'https://tse3.mm.bing.net/th/id/OIP.ThkJiM7rc7QWUJG9QWMUtgHaEp?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'hY7m5jjJ9mM' },
+      { title: 'Office Chaos', genre: 'Comedy · Satire', year: 2023, rating: '4.5', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.GhWWKbvEEC8nbdyubfUn9QHaEO?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'hY7m5jjJ9mM' },
+      { title: 'Totally Normal', genre: 'Comedy · Romance', year: 2022, rating: '4.0', badge: null, img: 'https://tse4.mm.bing.net/th/id/OIP.CXAs2P5G-zrwvumFhZ40YQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3', youtube: 'KAOdjqyG37A' },
+      { title: 'The Wrong Address', genre: 'Comedy · Mystery', year: 2024, rating: '4.2', badge: 'Hot', img: 'https://tse3.mm.bing.net/th/id/OIP.ziRhzDFcUMSSvLhx_RX9ggHaFU?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/VOsL4U-ITVQ' },
+      { title: 'Accidental Hero', genre: 'Comedy · Action', year: 2023, rating: '4.4', badge: null, img: 'https://tse2.mm.bing.net/th/id/OIP.ODQZX96xLQ045DpO2reRtAHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/vpW6Ycbo-Qo', desc: 'An ordinary guy becomes an unlikely savior when he stumbles into a bank heist and relies on pure luck to save the day.' },
+    ];
+
+    var cGrid = document.getElementById('comedyGrid');
+    comedyMovies.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+
+      var videoId = m.youtubeUrl ? extractYouTubeID(m.youtubeUrl) : extractYouTubeID(m.youtube);
+      var isAccidentalHero = m.title === 'Accidental Hero';
+
+      var buttonText = isAccidentalHero ? '&#9654; Watch Trailer' : '&#9654; Watch';
+
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        (m.desc ? '<p class="adv-desc" style="font-size: 0.75rem; color: #ccc; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">' + m.desc + '</p>' : '') +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">&#11088; ' + m.rating + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play" ' + (!videoId ? 'disabled style="opacity:.4"' : '') + '>' + buttonText + '</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+
+      if (videoId) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(videoId, m.title));
+      }
+      cGrid.appendChild(card);
+    });
+
+    // Fantasy Section
+    var fantasyMovies = [
+      { title: 'Starfall', genre: 'Fantasy · Action', year: 2024, rating: '4.7', badge: 'Hot', img: 'https://tse1.mm.bing.net/th/id/OIP.2f2TV9iFHUFE4LP0VC8-tgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/Twe1JWAN0io' },
+      { title: 'The Last Empire', genre: 'Fantasy · Epic', year: 2026, rating: 'TBA', badge: 'Coming', img: 'https://tse3.mm.bing.net/th/id/OIP.wSzbCbkWMc6TU5dlr0GRiAHaLG?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/jjywS-s_MOM' },
+      { title: 'Dragon Realm', genre: 'Fantasy · Adventure', year: 2024, rating: '4.5', badge: 'New', img: 'https://tse1.explicit.bing.net/th/id/OIP.hQgmnZIwiAvPkUK03maW_AHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/nwcb6t0kjq8' },
+      { title: 'Shadowmere', genre: 'Fantasy · Mystery', year: 2023, rating: '4.4', badge: null, img: 'https://th.bing.com/th/id/OIP.jyd1WBg8i0dhfK2LdkQIkQHaEK?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/IFaptuCABQc' },
+      { title: 'Crown of Thorns', genre: 'Fantasy · Drama', year: 2024, rating: '4.6', badge: 'Top Pick', img: 'https://tse4.mm.bing.net/th/id/OIP.VUpJYY3gWqYlvwilwE-zuAHaEJ?w=626&h=351&rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/sjdzPIwkuGU' },
+      { title: 'The Enchanted War', genre: 'Fantasy · Action', year: 2023, rating: '4.3', badge: null, img: 'https://tse1.mm.bing.net/th/id/OIP.jBCHRzvpnBvBZ-ipEWJtIgHaEK?rs=1&pid=ImgDetMain&o=7&rm=3', youtubeUrl: 'https://youtu.be/nqmYrAtRTmk' },
+    ];
+
+    var fGrid = document.getElementById('fantasyGrid');
+    fantasyMovies.forEach(function (m) {
+      var card = document.createElement('div');
+      card.className = 'adv-card';
+
+      var videoId = m.youtubeUrl ? extractYouTubeID(m.youtubeUrl) : extractYouTubeID(m.youtube);
+      var buttonText = '&#9654; Watch';
+
+      card.innerHTML =
+        '<img class="adv-thumb" src="' + m.img + '" alt="' + m.title + '" loading="lazy" />' +
+        '<div class="adv-body">' +
+        '<div>' +
+        (m.badge ? '<span class="adv-badge">' + m.badge + '</span>' : '') +
+        '<p class="adv-title">' + m.title + '</p>' +
+        '<p class="adv-meta">' + m.year + ' &nbsp;&middot;&nbsp; ' + m.genre + '</p>' +
+        (m.desc ? '<p class="adv-desc" style="font-size: 0.75rem; color: #ccc; margin-top: 6px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">' + m.desc + '</p>' : '') +
+        '</div>' +
+        '<div class="adv-rating-row">' +
+        '<div class="adv-rating-bar"><div class="adv-rating-fill" style="width:' + (m.rating === 'TBA' ? 0 : m.rating / 5 * 100) + '%"></div></div>' +
+        '<span class="adv-rating-val">' + (m.rating === 'TBA' ? 'TBA' : '&#11088; ' + m.rating) + '</span>' +
+        '</div>' +
+        '<div class="adv-actions">' +
+        '<button class="adv-btn play" ' + (!videoId ? 'disabled style="opacity:.4"' : '') + '>' + buttonText + '</button>' +
+        '<button class="adv-btn list">+ List</button>' +
+        '</div>' +
+        '</div>';
+
+      if (videoId) {
+        card.querySelector('.adv-btn.play').addEventListener('click', (function (id, title) {
+          return function (e) { e.stopPropagation(); openPlayer(id, title); };
+        })(videoId, m.title));
+      }
+      fGrid.appendChild(card);
+    });
+
+    // ══════════════════════════════════════
+    // SV SEARCH
+    // ══════════════════════════════════════
+    (function () {
+      const wrap = document.getElementById('svSearch');
+      const btn = document.getElementById('svSearchBtn');
+      const input = document.getElementById('svSearchInput');
+      const results = document.getElementById('svSearchResults');
+      if (!wrap || !btn || !input || !results) return;
+
+      // Ensure style compatibility for search box and dropdown
+      wrap.style.position = 'relative';
+      wrap.style.display = 'flex';
+      wrap.style.alignItems = 'center';
+
+      results.style.display = 'none';
+      results.style.position = 'absolute';
+      results.style.top = '100%';
+      results.style.right = '0';
+      results.style.width = '320px';
+      results.style.background = '#141414';
+      results.style.border = '1px solid rgba(255,255,255,0.12)';
+      results.style.borderRadius = '8px';
+      results.style.boxShadow = '0 16px 48px rgba(0,0,0,0.85)';
+      results.style.zIndex = '9999';
+      results.style.maxHeight = '440px';
+      results.style.overflowY = 'auto';
+
+      var ALL_MOVIES = [].concat(musicItems, actionMovies, comedyMovies, fantasyMovies);
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        input.style.width = input.style.width === '200px' ? '0px' : '200px';
+        input.style.opacity = input.style.opacity === '1' ? '0' : '1';
+        input.style.cursor = 'text';
+        input.style.border = 'none';
+        input.style.background = 'transparent';
+        input.style.color = '#fff';
+        input.style.padding = '5px';
+        input.style.outline = 'none';
+
+        if (input.style.width === '200px') {
+          setTimeout(function () { input.focus(); }, 100);
+        } else {
+          input.value = '';
+          hideResults();
+        }
+      });
+
+      input.addEventListener('input', function () {
+        const q = input.value.trim().toLowerCase();
+        if (!q) { hideResults(); return; }
+        const hits = ALL_MOVIES.filter(function (m) {
+          return m.title.toLowerCase().includes(q) ||
+            (m.genre && m.genre.toLowerCase().includes(q)) ||
+            (m.year && String(m.year).includes(q));
+        });
+        showResults(hits, q);
+      });
+
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { input.value = ''; hideResults(); }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!wrap.contains(e.target)) { input.value = ''; hideResults(); }
+      });
+
+      function highlight(text, q) {
+        const idx = text.toLowerCase().indexOf(q);
+        if (idx === -1) return text;
+        return text.slice(0, idx) + '<mark style="background:#e50914;color:#fff;border-radius:2px;padding:0 1px">' + text.slice(idx, idx + q.length) + '</mark>' + text.slice(idx + q.length);
+      }
+
+      function hideResults() {
+        results.style.display = 'none';
+        results.innerHTML = '';
+      }
+
+      function showResults(hits, q) {
+        results.innerHTML = '';
+        if (!hits.length) {
+          results.innerHTML = '<p style="padding:20px;text-align:center;color:#555;font-size:0.85rem;">No results for "<strong style="color:#fff">' + q + '</strong>"</p>';
+          results.style.display = 'block';
+          return;
+        }
+
+        var uniqueHits = [];
+        var titles = new Set();
+        for (var i = 0; i < hits.length; i++) {
+          if (!titles.has(hits[i].title)) {
+            uniqueHits.push(hits[i]);
+            titles.add(hits[i].title);
+          }
+        }
+
+        uniqueHits.slice(0, 10).forEach(function (movie) {
+          const item = document.createElement('div');
+          item.style.display = 'flex';
+          item.style.alignItems = 'center';
+          item.style.gap = '12px';
+          item.style.padding = '10px 14px';
+          item.style.cursor = 'pointer';
+          item.style.borderBottom = '1px solid rgba(255,255,255,0.04)';
+
+          var vid = movie.youtubeUrl ? extractYouTubeID(movie.youtubeUrl) : extractYouTubeID(movie.youtube);
+
+          item.innerHTML =
+            '<img src="' + movie.img + '" alt="' + movie.title + '" style="width:44px; height:60px; border-radius:4px; object-fit:cover; flex-shrink:0; background:#222;" />' +
+            '<div style="display:flex; flex-direction:column; gap:3px; flex:1; min-width:0;">' +
+            '<div style="font-size:0.88rem; font-weight:600; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">' + highlight(movie.title, q) + '</div>' +
+            '<div style="font-size:0.72rem; color:#888;">' + movie.year + ' · ' + movie.genre + ' · ⭐ ' + movie.rating + '</div>' +
+            '</div>' +
+            (vid ? '<button style="background:#e50914; border:none; color:#fff; width:28px; height:28px; border-radius:50%; font-size:0.7rem; cursor:pointer; flex-shrink:0; display:flex; align-items:center; justify-content:center;">▶</button>' : '');
+
+          item.onmouseover = function () { item.style.background = 'rgba(255,255,255,0.07)'; };
+          item.onmouseout = function () { item.style.background = 'transparent'; };
+
+          item.addEventListener('click', function () {
+            input.value = movie.title;
+            hideResults();
+          });
+
+          if (vid) {
+            item.querySelector('button').addEventListener('click', function (e) {
+              e.stopPropagation();
+              hideResults();
+              input.value = '';
+              openPlayer(vid, movie.title);
+            });
+          }
+          results.appendChild(item);
+        });
+        results.style.display = 'block';
+      }
+    })();
+  </script>
+  <script src="chatbot.js"></script>
+  <script src="admin.js"></script>
+
+</body>
+
+</html>

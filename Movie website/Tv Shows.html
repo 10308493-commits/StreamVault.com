@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TV Shows – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Movies.html">Movies</a></li>
+      <li><a href="Tv Shows.html" class="active">TV Shows</a></li>
+      <li><a href="new-popular.html">New &amp; Popular</a></li>
+      <li><a href="My List.html">My List</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..." autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- TV Shows Hero Slider -->
+  <div class="tv-img-slider" id="tvImgSlider" style="margin-top:64px">
+    <div class="tv-slider-track" id="tvSliderTrack"></div>
+    <button class="tv-slider-arrow left" id="tvSliderPrev">&#8592;</button>
+    <button class="tv-slider-arrow right" id="tvSliderNext">&#8594;</button>
+    <div class="tv-slider-dots" id="tvSliderDots"></div>
+  </div>
+
+  <!-- Video Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose">&times;</button>
+      <div class="player-video-wrap">
+        <video class="player-video" id="playerVideo" controls style="display:none"></video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+      </div>
+    </div>
+  </div>
+  <section class="categories-section tv-categories">
+    <h2 class="section-title" style="padding:0 4% 1.5rem">Browse by Category</h2>
+
+    <!-- Row 1 — scrolls left -->
+    <div class="categories-track-wrap" style="margin-bottom:1rem">
+      <div class="categories-track">
+        <div class="cat-card" style="--cat-color:#db2777">🎭<span>Reality TV</span></div>
+        <div class="cat-card" style="--cat-color:#d97706">�<span>Game Shows</span></div>
+        <div class="cat-card" style="--cat-color:#0891b2">🎙️<span>Talk Shows</span></div>
+        <div class="cat-card" style="--cat-color:#7c3aed">🌟<span>Talent Shows</span></div>
+        <div class="cat-card" style="--cat-color:#059669">�️<span>Lifestyle</span></div>
+        <div class="cat-card" style="--cat-color:#65a30d">📚<span>Documentaries</span></div>
+        <div class="cat-card" style="--cat-color:#0070f3">📰<span>News</span></div>
+        <div class="cat-card" style="--cat-color:#b45309">🎓<span>Educational</span></div>
+        <div class="cat-card" style="--cat-color:#e50914">🎬<span>Drama</span></div>
+        <div class="cat-card" style="--cat-color:#0f766e">🔮<span>Mystery</span></div>
+        <!-- duplicates -->
+        <div class="cat-card" style="--cat-color:#db2777">🎭<span>Reality TV</span></div>
+        <div class="cat-card" style="--cat-color:#d97706">�<span>Game Shows</span></div>
+        <div class="cat-card" style="--cat-color:#0891b2">🎙️<span>Talk Shows</span></div>
+        <div class="cat-card" style="--cat-color:#7c3aed">🌟<span>Talent Shows</span></div>
+        <div class="cat-card" style="--cat-color:#059669">🍽️<span>Lifestyle</span></div>
+        <div class="cat-card" style="--cat-color:#65a30d">📚<span>Documentaries</span></div>
+        <div class="cat-card" style="--cat-color:#0070f3">�<span>News</span></div>
+        <div class="cat-card" style="--cat-color:#b45309">🎓<span>Educational</span></div>
+        <div class="cat-card" style="--cat-color:#e50914">�<span>Drama</span></div>
+        <div class="cat-card" style="--cat-color:#0f766e">�<span>Mystery</span></div>
+      </div>
+    </div>
+
+    <!-- Row 2 — scrolls right -->
+    <div class="categories-track-wrap">
+      <div class="categories-track tv-track-reverse">
+        <div class="cat-card" style="--cat-color:#0284c7">🧒<span>Kids Shows</span></div>
+        <div class="cat-card" style="--cat-color:#9333ea">🎨<span>Cartoons</span></div>
+        <div class="cat-card" style="--cat-color:#be185d">👦<span>Teen Shows</span></div>
+        <div class="cat-card" style="--cat-color:#16a34a">⚽<span>Sports</span></div>
+        <div class="cat-card" style="--cat-color:#ca8a04">🎵<span>Music Shows</span></div>
+        <div class="cat-card" style="--cat-color:#7e22ce">🙏<span>Religious</span></div>
+        <div class="cat-card" style="--cat-color:#dc2626">🔥<span>Action</span></div>
+        <div class="cat-card" style="--cat-color:#0369a1">🚀<span>Sci-Fi</span></div>
+        <div class="cat-card" style="--cat-color:#92400e">🤠<span>Western</span></div>
+        <div class="cat-card" style="--cat-color:#166534">🌿<span>Nature</span></div>
+        <!-- duplicates -->
+        <div class="cat-card" style="--cat-color:#0284c7">🧒<span>Kids Shows</span></div>
+        <div class="cat-card" style="--cat-color:#9333ea">🎨<span>Cartoons</span></div>
+        <div class="cat-card" style="--cat-color:#be185d">👦<span>Teen Shows</span></div>
+        <div class="cat-card" style="--cat-color:#16a34a">⚽<span>Sports</span></div>
+        <div class="cat-card" style="--cat-color:#ca8a04">🎵<span>Music Shows</span></div>
+        <div class="cat-card" style="--cat-color:#7e22ce">🙏<span>Religious</span></div>
+        <div class="cat-card" style="--cat-color:#dc2626">🔥<span>Action</span></div>
+        <div class="cat-card" style="--cat-color:#0369a1">🚀<span>Sci-Fi</span></div>
+        <div class="cat-card" style="--cat-color:#92400e">🤠<span>Western</span></div>
+        <div class="cat-card" style="--cat-color:#166534">🌿<span>Nature</span></div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Documentaries Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">📚 Documentaries</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="docsGrid"></div>
+  </section>
+
+  <!-- Music Shows Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🎵 Music Shows</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="musicGrid"></div>
+  </section>
+
+  <!-- Reality Shows Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🎭 Reality Shows</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="realityGrid"></div>
+  </section>
+
+  <!-- Talent Shows Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🌟 Talent Shows</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="talentGrid"></div>
+  </section>
+
+  <!-- Talk Shows Section -->
+  <section class="featured adventure-section">
+    <div class="featured-header">
+      <h2 class="section-title">🎙️ Talk Shows</h2>
+      <a href="#" class="see-all">See All &rarr;</a>
+    </div>
+    <div class="movies-grid" id="talkGrid"></div>
+  </section>
+
+  <!-- Membership CTA -->
+  <section class="membership-cta">
+    <div class="membership-inner">
+      <div class="membership-glow"></div>
+      <span class="membership-tag">&#127775; Exclusive Access</span>
+      <h2 class="membership-title">Join Our Community</h2>
+      <p class="membership-desc">Get unlimited access to all shows, early releases, ad-free streaming, and exclusive member-only content.</p>
+      <div class="membership-perks">
+        <span>&#10003; Ad-free streaming</span>
+        <span>&#10003; Early access</span>
+        <span>&#10003; Exclusive content</span>
+        <span>&#10003; Cancel anytime</span>
+      </div>
+      <a href="#" class="membership-btn" id="membershipBtn">Join Now — It's Free</a>
+      <a href="#" class="cancel-membership-link" id="cancelMembershipBtn">Cancel Membership</a>
+    </div>
+  </section>
+
+  <!-- Membership Modal -->
+  <div class="membership-modal" id="membershipModal">
+    <div class="membership-modal-card">
+      <button class="membership-modal-close" id="membershipClose">&times;</button>
+      <div class="membership-modal-header">
+        <div class="sv-modal-logo">StreamVault</div>
+        <h2 class="membership-modal-title">Choose your plan</h2>
+        <p class="membership-modal-sub">Watch anywhere. Cancel anytime.</p>
+      </div>
+
+      <!-- Plan picker -->
+      <div class="nf-plan-row" id="nfPlanRow">
+        <div class="nf-plan active" data-plan="free" data-price="Free">
+          <div class="nf-plan-name">Basic</div>
+          <div class="nf-plan-price">Free</div>
+          <ul class="nf-plan-features">
+            <li>&#10003; HD streaming</li>
+            <li>&#10003; 1 screen</li>
+            <li>&#10007; Ads included</li>
+          </ul>
+        </div>
+        <div class="nf-plan" data-plan="pro" data-price="$9.99/mo">
+          <div class="nf-plan-badge">Most Popular</div>
+          <div class="nf-plan-name">Pro</div>
+          <div class="nf-plan-price">$9.99<span>/mo</span></div>
+          <ul class="nf-plan-features">
+            <li>&#10003; Full HD &amp; 4K</li>
+            <li>&#10003; 2 screens</li>
+            <li>&#10003; No ads</li>
+          </ul>
+        </div>
+        <div class="nf-plan" data-plan="family" data-price="$14.99/mo">
+          <div class="nf-plan-name">Family</div>
+          <div class="nf-plan-price">$14.99<span>/mo</span></div>
+          <ul class="nf-plan-features">
+            <li>&#10003; 4K Ultra HD</li>
+            <li>&#10003; 5 screens</li>
+            <li>&#10003; No ads</li>
+          </ul>
+        </div>
+      </div>
+
+      <form class="membership-form" id="membershipForm" novalidate>
+        <div class="auth-field">
+          <input type="text" class="auth-input" id="memName" placeholder=" " required />
+          <label class="auth-label">Full name</label>
+        </div>
+        <div class="auth-field">
+          <input type="email" class="auth-input" id="memEmail" placeholder=" " required />
+          <label class="auth-label">Email address</label>
+        </div>
+        <div class="auth-field">
+          <input type="password" class="auth-input" id="memPassword" placeholder=" " required />
+          <label class="auth-label">Password (min 6 characters)</label>
+        </div>
+        <p class="mem-err" id="memErr"></p>
+        <button type="submit" class="nf-submit-btn" id="memSubmitBtn">Get Started</button>
+        <p class="nf-terms">By signing up, you agree to our <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>.</p>
+      </form>
+
+      <!-- Loading state -->
+      <div class="mem-loading" id="memLoading" style="display:none">
+        <div class="mem-spinner"></div>
+        <p class="mem-loading-text">We're getting you started, please wait<span class="mem-dots"></span></p>
+      </div>
+
+      <!-- Success state -->
+      <div class="mem-success" id="memSuccess" style="display:none">
+        <div class="mem-success-icon">&#10003;</div>
+        <h3 class="mem-success-title">Membership Created!</h3>
+        <p class="mem-success-sub">Welcome to StreamVault. Your account is ready.</p>
+        <button class="nf-submit-btn" id="memSuccessClose">Start Watching</button>
+      </div>
+      <p class="mem-signin">Already a member? <a href="auth.html" class="auth-link">Sign in</a></p>
+    </div>
+  </div>
+
+  <!-- Cancel Membership Modal -->
+  <div class="membership-modal" id="cancelModal">
+    <div class="membership-modal-card cancel-card">
+      <button class="membership-modal-close" id="cancelClose">&times;</button>
+      <div class="cancel-icon">&#128533;</div>
+      <h2 class="membership-modal-title">Cancel Membership?</h2>
+      <p class="membership-modal-sub">We're sorry to see you go. Your access will continue until the end of your billing period.</p>
+      <div class="cancel-perks-lost">
+        <p class="cancel-perks-title">You'll lose access to:</p>
+        <ul>
+          <li>&#10007; Ad-free streaming</li>
+          <li>&#10007; 4K &amp; HD content</li>
+          <li>&#10007; Exclusive member shows</li>
+          <li>&#10007; Multiple screens</li>
+        </ul>
+      </div>
+      <div class="cancel-actions">
+        <button class="nf-submit-btn" id="keepMembershipBtn">Keep Membership</button>
+        <button class="cancel-confirm-btn" id="confirmCancelBtn">Yes, Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+
+      <div class="footer-brand-center">
+        <div class="footer-logo">StreamVault</div>
+        <p class="footer-tagline">Your universe of stories, on demand.</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Facebook" class="social-icon">f</a>
+          <a href="#" aria-label="Twitter/X" class="social-icon">𝕏</a>
+          <a href="#" aria-label="Instagram" class="social-icon">&#128247;</a>
+          <a href="#" aria-label="YouTube" class="social-icon">&#9654;</a>
+          <a href="#" aria-label="TikTok" class="social-icon">&#9835;</a>
+        </div>
+      </div>
+
+      <div class="footer-nav-row">
+        <a href="index.html">Home</a>
+        <a href="Movies.html">Movies</a>
+        <a href="Tv Shows.html">TV Shows</a>
+        <a href="new-popular.html">New &amp; Popular</a>
+        <a href="My List.html">My List</a>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Help Center</a>
+      </div>
+
+      <div class="footer-newsletter">
+        <p class="newsletter-label">Get new release alerts straight to your inbox</p>
+        <form class="newsletter-form" onsubmit="return false">
+          <input type="email" placeholder="Enter your email address" class="newsletter-input" />
+          <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom-center">
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 StreamVault, Inc. All rights reserved.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="tvshows-page.js"></script>
+  <script src="chatbot.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

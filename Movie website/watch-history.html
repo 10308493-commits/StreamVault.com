@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watch History – StreamVault</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="chatbot.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-logo"><a href="index.html" style="text-decoration:none;color:inherit">StreamVault</a></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Movies.html">Movies</a></li>
+      <li><a href="Tv Shows.html">TV Shows</a></li>
+      <li><a href="new-popular.html">New &amp; Popular</a></li>
+      <li><a href="My List.html">My List</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="sv-search" id="svSearch">
+        <button class="sv-search-btn" id="svSearchBtn" aria-label="Search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </button>
+        <input class="sv-search-input" id="svSearchInput" type="text" placeholder="Search titles, genres..." autocomplete="off" spellcheck="false" />
+        <div class="sv-search-results" id="svSearchResults"></div>
+      </div>
+      <div class="nav-account" id="navAccount">
+        <div class="nav-avatar" id="avatarBtn" title="Profile">JD</div>
+        <div class="account-dropdown" id="accountDropdown">
+          <div class="account-header">
+            <div class="account-avatar-lg">JD</div>
+            <div>
+              <p class="account-name">John Doe</p>
+              <p class="account-email">johndoe@email.com</p>
+            </div>
+          </div>
+          <div class="account-divider"></div>
+          <ul class="account-menu">
+            <li><a href="#">&#128100; Manage Profiles</a></li>
+            <li><a href="watch-history.html" class="active">&#9654; Watch History</a></li>
+            <li><a href="#">&#10084; Favourites</a></li>
+            <li><a href="#">&#9881; Account Settings</a></li>
+            <li><a href="#">&#128276; Notifications</a></li>
+          </ul>
+          <div class="account-divider"></div>
+          <a href="#" class="account-signout">&#128274; Sign Out</a>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Watch History -->
+  <main class="wh-main">
+    <div class="wh-header">
+      <h1 class="wh-title">&#9654; Watch History</h1>
+      <button class="wh-clear-btn" id="whClearBtn">Clear All History</button>
+    </div>
+    <div class="wh-empty" id="whEmpty" style="display:none">
+      <div class="wh-empty-icon">&#127916;</div>
+      <p>No watch history yet.</p>
+      <a href="Movies.html" class="btn btn-primary" style="margin-top:1rem">Browse Movies</a>
+    </div>
+    <div class="wh-grid" id="whGrid"></div>
+  </main>
+
+  <!-- Video Player Modal -->
+  <div class="player-modal" id="playerModal">
+    <div class="player-container">
+      <button class="player-close" id="playerClose">&times;</button>
+      <div class="player-video-wrap">
+        <video class="player-video" id="playerVideo" controls style="display:none"></video>
+        <iframe class="player-iframe" id="playerIframe" frameborder="0" allowfullscreen allow="autoplay; encrypted-media" style="display:none"></iframe>
+      </div>
+      <div class="player-info">
+        <span class="player-title" id="playerTitle"></span>
+        <span class="player-resume" id="playerResume"></span>
+      </div>
+    </div>
+  </div>
+
+  <script src="watch-history.js"></script>
+  <script src="chatbot.js"></script>
+</body>
+</html>
